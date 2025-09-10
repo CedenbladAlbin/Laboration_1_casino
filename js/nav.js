@@ -17,9 +17,13 @@ function pickpath(e) {
     case "gamble":
       thepath.src = "html/Game.html";
       break;
-    case "history":
-      thepath.src = "html/History.html";
+    case "getcoins":
+      thepath.src = "html/GetCoins.html";
       break;
+    case "kidnap":
+        thepath.src = "html/Kidnap.html"
+    case "Devil":
+        thepath.src = "html/Kidnap.html"
     default:
       console.warn("Okänt meddelande:", e.data);
   }
