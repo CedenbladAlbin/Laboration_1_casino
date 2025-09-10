@@ -4,6 +4,17 @@
 
 <section class="main">
     <h1>Make your fortune, Loser!</h1>
+    <div id="currencyDisplay" ></div>
+    <div id="stakeMenu">
+        <label for="stakeSelect" >Stake: </label>
+        <select id="stakeSelect">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50" selected>50</option>
+            <option value="100">100</option>
+        </select>
+        <span style="font-size:1.1rem;">coins</span>
+    </div>
     <section id="slotsSection">
         <ul >
             <li><div class="slots" id="nr1"></div></li>
@@ -16,13 +27,9 @@
         <button id="restartButton">Spinn</button>
         <button id="stoppButton" >Stop</button>
     </div>
+
+
 </section>
 
-
-<script>
-    function sendMessage(event, path) {
-        event.preventDefault();
-        window.parent.postMessage(path, '*');
-    }
-</script>
-<script src="../js/Game.js"></script>
+<script src="../js/Currency.js"></script>
+<script type="module" src="../js/Game.js"></script>
