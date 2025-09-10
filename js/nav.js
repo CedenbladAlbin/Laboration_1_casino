@@ -1,3 +1,33 @@
+function sendMessage(event, path) {
+    event.preventDefault();
+    window.parent.postMessage(path, '*');
+}
+
+const thepath = document.getElementById("displayer");
+
+window.addEventListener("message", pickpath);
+
+function pickpath(e) {
+  //const thepath = document.getElementById("displayer");
+
+  switch (e.data) {
+    case "home":
+      thepath.src = "html/Home.html";
+      break;
+    case "gamble":
+      thepath.src = "html/Game.html";
+      break;
+    case "history":
+      thepath.src = "html/History.html";
+      break;
+    default:
+      console.warn("Okänt meddelande:", e.data);
+  }
+}
+
+
+
+/*
 function ResetIndex(){
    fetch("../html/Home.html")
          .then(response => response.text())
@@ -14,3 +44,5 @@ function ResetIndex(){
 }
 
 window.ResetIndex = ResetIndex;
+
+*/

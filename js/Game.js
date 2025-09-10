@@ -1,4 +1,9 @@
 console.log("Spel.js är laddad!");
+
+  window.addEventListener('DOMContentLoaded', function() {
+      if (window.initGame) window.initGame();
+  });
+
 function initGame() {
 
 
@@ -10,9 +15,9 @@ function initGame() {
 
     const restartButton = document.getElementById("restartButton");
     const stopButton = document.getElementById("stoppButton");
-  stopButton.disabled = true;
-  restartButton.disabled = false;
-  
+    stopButton.disabled = true;
+    restartButton.disabled = false;
+
 
     divar.forEach(div => {
       if (!div.hasChildNodes()) {

@@ -1,18 +1,28 @@
 <link rel="stylesheet" href="../css/Game.css">
+<link rel="stylesheet" href="../css/StyleSheet.css">
 
 
-<h1>Make your fortune, Loser!</h1>
-<section id="slotsSection">
-    <ul >
-        <li><div class="slots" id="nr1"></div></li>
-        <li><div class="slots" id="nr2"></div></li>
-        <li><div class="slots" id="nr3"></div></li>
-        <li><div class="slots" id="nr4"></div></li>
-    </ul>
+<section class="main">
+    <h1>Make your fortune, Loser!</h1>
+    <section id="slotsSection">
+        <ul >
+            <li><div class="slots" id="nr1"></div></li>
+            <li><div class="slots" id="nr2"></div></li>
+            <li><div class="slots" id="nr3"></div></li>
+            <li><div class="slots" id="nr4"></div></li>
+        </ul>
+    </section>
+    <div class="buttonContainer">
+        <button id="restartButton">Spinn</button>
+        <button id="stoppButton" >Stop</button>
+    </div>
 </section>
-<div class="buttonContainer">
-    <button id="restartButton">Spinn</button>
-    <button id="stoppButton" >Stop</button>
-</div>
 
+
+<script>
+    function sendMessage(event, path) {
+        event.preventDefault();
+        window.parent.postMessage(path, '*');
+    }
+</script>
 <script src="../js/Game.js"></script>

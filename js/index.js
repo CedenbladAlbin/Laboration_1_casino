@@ -1,26 +1,35 @@
-//document.getElementById("nav").innerHTML = ``;
 
-//för att knapparna ska fungera med iframes.
-const thepath = document.getElementById("displayer");
 
-window.addEventListener("message", pickpath);
 
-function pickpath(e) {
-  //const thepath = document.getElementById("displayer");
 
-  switch (e.data) {
-    case "home":
-      thepath.src = "html/Home.html";
-      break;
-    case "gamble":
-      thepath.src = "html/Spel.html";
-      break;
-    case "history":
-      thepath.src = "html/History.html";
-      break;
-    default:
-      console.warn("Okänt meddelande:", e.data);
-  }
+/*
+function loadHTML(filePath, elementId, callback) {
+    fetch(filePath)
+        .then(response => {
+            if (!response.ok) throw new Error(`Failed to load ${filePath}`);
+            return response.text();
+        })
+        .then(data => {
+            const el = document.getElementById(elementId);
+            if (el) {
+                el.innerHTML = data;
+                if (callback) callback(); 
+            } else {
+                console.error(`Element with ID '${elementId}' not found`);
+            }
+        })
+        .catch(error => console.error(error));
 }
 
+// Load navigation
+loadHTML('../html/Nav.html', 'nav');
 
+// Load home page
+loadHTML('../html/Home.html', 'main');
+
+// Load game page with an initialization callback
+function PlayGame() {
+    loadHTML('../html/Game.html', 'main', initGame);
+}
+
+*/
