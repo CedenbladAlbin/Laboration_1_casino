@@ -2,8 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: hidden;
-}nav {
+  }
+  
+  nav {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,6 +21,11 @@ nav ul {
     list-style: none;
 }
 
+nav li{
+    display: flex;
+    align-items: center;
+}
+
 nav a {
     text-decoration: none;
     color: #fff;
@@ -27,13 +33,14 @@ nav a {
     padding: 0.8rem 1.8rem;
     display: inline-block;
     transition: all 0.3s ease;
-    font-size: 1.2rem;
+ 
     border-radius: 10px;
     position: relative;
     overflow: hidden;
     z-index: 1;
     letter-spacing: 1px;
     text-transform: uppercase;
+   
 }
 
 nav a:before {
