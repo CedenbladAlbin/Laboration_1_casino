@@ -1,12 +1,54 @@
 <link rel="stylesheet" href="../css/StyleSheet.css">
 <link rel="stylesheet" href="../css/GetCoins.css">
 
-<section class="main" >
-    <p> How do you wanna earn coins?</p>
+<section id="sectionCoin">
+    <p> ther is really only one way to earn coins except the casino, Lets make some kidnapping!</p>
     <ul>
-        <li><div class="" id="nr"><a href="#">Rob someone innocent?</a> </div></li>
-        <li><div class="" id="nr2"><a href="#">Make a donations to the devil?</a> </div></li>
-        <li><div class="" id="nr3"><a href="#">kidnap someone and ask for ransom?</a></div></li>
-        <li><div class="" id="nr4"><a href="#">Make a painting and sell to highest bidder?</a></div></li>
+        <li><div class="" id="nr"><a href="#" onclick="showSection('sectionWho')">Start planing</a> </div></li>
+    
     </ul>
 </section>
+
+<section id="sectionHow" style="display: none;">
+    <p> how will you do it?</p>
+    <ul >
+        <li><div class="" id="nr"><a href="#" onclick="showSection('sectionEarnings'),updateCoinsEarned(2)">Hire Charles Ingvar Jönsson to "Have a plan". </a> </div></li>
+        <li><div class="" id="nr2"><a href="#" onclick="showSection('sectionEarnings'),updateCoinsEarned(1)">Follow your gut and just do it when and were it feels right. </a> </div></li>
+        <li><div class="" id="nr3"><a href="#" onclick="showSection('sectionEarnings'),updateCoinsEarned(0.7)">Make your own plan with advice from flashback. </a></div></li>
+        <li><div class="" id="nr4"><a href="#" onclick="showSection('sectionEarnings'),updateCoinsEarned(0.3)">Listen to your best friend and drive around in a black van until an opportunity comes. </a></div></li>
+        <li><div class="" id="nr5"><a href="#" onclick="showSection('sectionEarnings'),updateCoinsEarned(5)">Sell your soul to the devil for the best plan ever!</a></div></li>
+    </ul>
+</section>
+
+<section id="sectionWho" style="display: none;">
+    <p> who will you kidnap?</p>
+    <ul>
+        <li><div class="" id="nr"><a href="#" onclick="showSection('sectionSafehouse'),updateCoinsEarned(0.7)">The presidents child.</a> </div></li>
+        <li><div class="" id="nr2"><a href="#" onclick="showSection('sectionSafehouse'),updateCoinsEarned(0.3)">The president.</a> </div></li>
+        <li><div class="" id="nr3"><a href="#" onclick="showSection('sectionSafehouse'),updateCoinsEarned(1)">Neighbors cat</a></div></li>
+        <li><div class="" id="nr4"><a href="#" onclick="showSection('sectionSafehouse'),updateCoinsEarned(2)">Random person from a country with a dictator</a></div></li>
+        <li><div class="" id="nr4"><a href="#" onclick="showSection('sectionSafehouse'),updateCoinsEarned(5)">The child of a corrupt narc</a></div></li>
+    </ul>
+</section>
+
+<section id="sectionSafehouse" style="display: none;">
+    <p> what kind of safehouse will you use?</p>
+    <ul>
+        <li><div class="" id="nr"><a href="#" onclick="showSection('sectionHow'),updateCoinsEarned(2)">A tent in the forest</a> </div></li>
+        <li><div class="" id="nr2"><a href="#" onclick="showSection('sectionHow'),updateCoinsEarned(5)">An abandon mine?</a> </div></li>
+        <li><div class="" id="nr3"><a href="#" onclick="showSection('sectionHow'),updateCoinsEarned(1)">Your moms house?(she really loves you)</a></div></li>
+        <li><div class="" id="nr4"><a href="#" onclick="showSection('sectionHow'),updateCoinsEarned(0.1)">Borrow a 'really nice' guy's house that you met on the dark web.</a></div></li>
+    </ul>
+</section>
+
+<section id="sectionEarnings" style="display: none;">
+    <p> you earned what you earned, Fluff away!</p>
+    <div id="coinsEarned">
+    Earned coins: 100
+    </div>
+    
+</section>
+
+
+
+<script src="../js/GetCoins.js"> </script> 
