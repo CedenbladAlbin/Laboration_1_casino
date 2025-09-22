@@ -1,7 +1,8 @@
 
 
 
-import { getCurrency, subtractCurrency, addCurrency } from './Currency.js';
+import { getCurrency, subtractCurrency, addCurrency, updateCurrencyDisplay } from './Currency.js';
+import { showHitnrunEffect } from './HitnrunEffect.js';
 
   window.addEventListener('DOMContentLoaded', function() {
       if (window.initGame) window.initGame();
@@ -150,8 +151,48 @@ function initGame() {
       }
       addCurrency(winAmount);
 
+        // Hitnrun thief effect: if any slot lands on hitnrun, thief steals coins
+        const hitnrunIndex = colors.findIndex(src => src.includes('hitnrun'));
+        if (resultat.includes(hitnrunIndex)) {
+          const coins = getCurrency();
+          let thiefDuration = 7.5;
+          if (coins > 100) thiefDuration = Math.max(2, 15.5 - Math.log10(coins) * 1.2);
+          // Show effect using module
+          showHitnrunEffect({
+            duration: thiefDuration,
+            onSteal: () => {
+              const stolenCoins = getCurrency();
+              setCurrency(0);
+              updateCurrencyDisplay();
+            },
+            onRestore: (restored) => {
+              if (restored) {
+                // Restore coins if caught before stolen
+                setCurrency(getCurrency());
+                updateCurrencyDisplay();
+              }
+            }
+          });
+          // Show effect text
+          const effectDiv = document.createElement('div');
+          effectDiv.className = 'hitnrun-effect';
+          effectDiv.textContent = 'HIT N RUN!';
+          effectDiv.style.position = 'fixed';
+          effectDiv.style.zIndex = '9999';
+          effectDiv.style.top = '20%';
+          effectDiv.style.left = '50%';
+          effectDiv.style.transform = 'translateX(-50%)';
+          document.body.appendChild(effectDiv);
+          setTimeout(() => {
+            if (effectDiv.parentNode) effectDiv.parentNode.removeChild(effectDiv);
+          }, 1800);
+        }
+
   }, divar.length * 1100);
   }
+
+  
+
   restartButton.addEventListener("click", spinnAction);
   stopButton.addEventListener("click", stopAction);
 }

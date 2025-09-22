@@ -23,7 +23,6 @@ function updateCoinsEarned(multiplier){
   const thediv = document.getElementById("coinsEarned");
   thediv.innerText = "Earned coins: " + startcoins;
   if(counter ===3){
-    console.log("Adding coins:", startcoins);
     addCurrency(startcoins);
     }
   

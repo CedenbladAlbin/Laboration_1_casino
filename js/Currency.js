@@ -32,6 +32,6 @@ function updateCurrencyDisplay() {
 	}
 }
 
-
 document.addEventListener('DOMContentLoaded', updateCurrencyDisplay);
+
 export { getCurrency, setCurrency, addCurrency, subtractCurrency, updateCurrencyDisplay };
