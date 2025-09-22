@@ -11,6 +11,9 @@ function showSection(id) {
 
 function updateCoinsEarned(multiplier){
   startcoins = startcoins * multiplier
+  if(startcoins < 1){
+    startcoins = 1;
+  }
   thediv = document.getElementById("coinsEarned");
   thediv.innerText = "Earned coins: " + startcoins
 }

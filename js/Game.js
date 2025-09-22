@@ -11,7 +11,7 @@ function initGame() {
   const intervall = 300;
   const blinkIntervaller = [];
   const resultat = [];
-  const colors = ["blue", "magenta", "yellow", "red", "green", "pink", "purple"];
+  const colors = ["../img/coinpile.png", "../img/grishuvud.png", "../img/gsc.png", "../img/hitnrun.png", "../img/roulette.png", "../img/royal.png"];
 
     const restartButton = document.getElementById("restartButton");
     const stopButton = document.getElementById("stoppButton");
@@ -24,7 +24,9 @@ function initGame() {
           colors.forEach((color, i) => {
               const face = document.createElement('div');
               face.className = `face face${i + 1}`;
-              face.style.backgroundColor = color;
+              face.style.backgroundImage = `url('${color}')`; 
+              face.style.backgroundSize = 'cover';
+              face.style.backgroundPosition = 'center';
               div.appendChild(face);
           });
       }
