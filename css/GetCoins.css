@@ -1,0 +1,98 @@
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 0;
+    padding-top: 8vh;
+    overflow: hidden;
+
+
+}
+#coinsEarned{
+     width: 20%;
+  margin: 0 auto;               /* Centrerar horisontellt */
+  text-align: center;           /* Centrerar texten inuti */
+  padding: 1rem;                /* Valfri styling */
+  background-color: #222;       /* Valfri bakgrund för synlighet */
+  border-radius: 8px; 
+}
+
+
+p{
+    font-size: 30px;
+    font-family: 'Gill Sans';
+    color: goldenrod;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ul{
+    display: flex;
+}
+ul li{
+    display: flex;
+    align-items: center;
+}
+
+ul li a{
+    
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 0.8rem 1.8rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+ 
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+div a:hover,
+div a.active {
+    color: goldenrod;
+    transform: translateY(-2px);
+    font-weight: bold;
+
+}
+div a {
+    
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 0.8rem 1.8rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+ 
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+   
+}
+
+div a:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: #222;
+    transition: all 0.4s ease;
+    z-index: -1;
+    border-radius: 10px;
+}
+
+div a:hover:before,
+div a.active:before {
+    width: 100%;
+}
+
