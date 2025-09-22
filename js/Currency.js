@@ -21,7 +21,7 @@ function setCurrency(amount) {
 
 function addCurrency(amount) {
 	setCurrency(getCurrency() + amount);
-	setLoss(Math.max(0, getLoss() - amount));
+	
 }
 
 function subtractCurrency(amount) {
@@ -34,7 +34,7 @@ function updateCurrencyDisplay() {
 	const ls = document.getElementById('lossDisplay');
 	if (el && ls) {
 		el.textContent = getCurrency() + ' coins';
-		ls.textContent = getLoss() + ' coins lost';
+		ls.textContent = getLoss() + ' loss';
 	}
 }
 

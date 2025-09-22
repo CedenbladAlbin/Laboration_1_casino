@@ -1,7 +1,7 @@
 
 
 
-import { getCurrency, subtractCurrency, addCurrency, updateCurrencyDisplay } from './Currency.js';
+import { getCurrency, subtractCurrency, addCurrency, setCurrency, updateCurrencyDisplay } from './Currency.js';
 import { showHitnrunEffect } from './HitnrunEffect.js';
 
   window.addEventListener('DOMContentLoaded', function() {
@@ -14,14 +14,13 @@ function initGame() {
   const intervall = 300;
   const blinkIntervaller = [];
   const resultat = [];
- const colors = ["../img/coinpile.png", "../img/grishuvud.png", "../img/gsc.png", "../img/hitnrun.png", "../img/roulette.png", "../img/royal.png"];
+  const colors = ["../img/coinpile.png", "../img/grishuvud.png", "../img/gsc.png", "../img/hitnrun.png", "../img/roulette.png", "../img/royal.png"];
   const WIN_MULTIPLIER = 12;
 
-  const restartButton = document.getElementById("restartButton");
   const stopButton = document.getElementById("stoppButton");
   const stakeSelect = document.getElementById("stakeSelect");
-  stopButton.disabled = true;
-  restartButton.disabled = false;
+  
+  
 
   divar.forEach(div => {
     if (!div.hasChildNodes()) {
@@ -46,7 +45,8 @@ function initGame() {
   }
 
   function spinnAction() {
-    resultat.length = 0;
+    if("Spinn" == stopButton.innerText){
+      resultat.length = 0;
     blinkIntervaller.forEach(id => clearInterval(id));
     blinkIntervaller.length = 0;
     divar.forEach((div) => {
@@ -57,12 +57,17 @@ function initGame() {
       }, intervall);
       blinkIntervaller.push(intervalId);
     });
-    stopButton.disabled = false;
-    restartButton.disabled = true;
+    stopButton.innerText = "Stop"
+    }
+    else{
+      stopAction();
+      stopButton.innerText = "Spinn"
+    }
+    
   }
 
   function stopAction() {
-
+    stopButton.disabled = true;
     const BET_COST = getStake();
     if (typeof getCurrency !== 'function' || typeof subtractCurrency !== 'function') {
       alert('Currency system not loaded!');
@@ -74,8 +79,7 @@ function initGame() {
     }
     subtractCurrency(BET_COST);
 
-    restartButton.disabled = false;
-    stopButton.disabled = true;
+    
     divar.forEach((div, index) => {
       setTimeout(() => {
         clearInterval(blinkIntervaller[index]);
@@ -162,7 +166,7 @@ function initGame() {
             duration: thiefDuration,
             onSteal: () => {
               const stolenCoins = getCurrency();
-              setCurrency(0);
+              subtractCurrency(stolenCoins);
               updateCurrencyDisplay();
             },
             onRestore: (restored) => {
@@ -187,14 +191,14 @@ function initGame() {
             if (effectDiv.parentNode) effectDiv.parentNode.removeChild(effectDiv);
           }, 1800);
         }
-
+  stopButton.disabled = false;
   }, divar.length * 1100);
   }
 
   
 
-  restartButton.addEventListener("click", spinnAction);
-  stopButton.addEventListener("click", stopAction);
+  
+  stopButton.addEventListener("click", spinnAction);
 }
 
 window.initGame = initGame;
