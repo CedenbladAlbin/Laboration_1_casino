@@ -31,8 +31,8 @@ function initGame() {
         const img = document.createElement('img');
         img.src = imgSrc;
         img.alt = `slot-face-${i + 1}`;
-        img.style.width = '80%';
-        img.style.height = '80%';
+        img.style.width = '90%';
+        img.style.height = '90%';
         img.style.objectFit = 'contain';
         face.appendChild(img);
         div.appendChild(face);

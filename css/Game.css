@@ -247,12 +247,12 @@
 }
 
 /* hexagon rotation for 6 faces */
-.slots .face1 { transform: rotateX(0deg) translateZ(100px); }
-.slots .face2 { transform: rotateX(60deg) translateZ(100px); }
-.slots .face3 { transform: rotateX(120deg) translateZ(100px); }
-.slots .face4 { transform: rotateX(180deg	) translateZ(100px); }
-.slots .face5 { transform: rotateX(240deg) translateZ(100px); }
-.slots .face6 { transform: rotateX(300deg) translateZ(100px); }
+.slots .face1 { transform: rotateX(0deg) translateZ(85px); }
+.slots .face2 { transform: rotateX(60deg) translateZ(85px); }
+.slots .face3 { transform: rotateX(120deg) translateZ(85px); }
+.slots .face4 { transform: rotateX(180deg	) translateZ(85px); }
+.slots .face5 { transform: rotateX(240deg) translateZ(85px); }
+.slots .face6 { transform: rotateX(300deg) translateZ(85px); }
 
 
 
