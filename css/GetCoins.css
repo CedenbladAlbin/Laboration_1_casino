@@ -1,84 +1,91 @@
-section{
+
+ section {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    height: 100vh;
-    margin-top: 0;
-    padding-top: 8vh;
-    overflow: hidden;
-
-
-}
-#coinsEarned{
-     width: 20%;
-  margin: 0 auto;               /* Centrerar horisontellt */
-  text-align: center;           /* Centrerar texten inuti */
-  padding: 1rem;                /* Valfri styling */
-  background-color: #222;       /* Valfri bakgrund för synlighet */
-  border-radius: 8px; 
+    min-height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 2.5rem 0.5rem 1.5rem 0.5rem;
+    box-sizing: border-box;
+    background: #181818;
+    overflow-x: hidden;
 }
 
-
-p{
-    font-size: 30px;
-    font-family: 'Gill Sans';
+#coinsEarned {
+    width: 90vw;
+    max-width: 400px;
+    margin: 1.2rem auto;
+    text-align: center;
+    padding: 1rem;
+    background-color: #222;
+    border-radius: 12px;
     color: goldenrod;
+    font-size: 1.3rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+
+p {
+    font-size: 1.2rem;
+    font-family: 'Gill Sans', Arial, sans-serif;
+    color: goldenrod;
+    text-align: center;
+    margin: 1rem 0;
+    line-height: 1.4;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    padding: 0;
+    margin: 2rem 0 1rem 0;
+    list-style: none;
+    align-items: center;
+}
+
+ul li {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-ul{
-    display: flex;
-}
-ul li{
-    display: flex;
-    align-items: center;
-}
 
-ul li a{
-    
+ul li a, div a {
+    width: 90vw;
+    max-width: 320px;
     text-decoration: none;
     color: #fff;
     font-weight: bold;
-    padding: 0.8rem 1.8rem;
+    padding: 1rem 0.5rem;
     display: inline-block;
     transition: all 0.3s ease;
- 
     border-radius: 10px;
     position: relative;
     overflow: hidden;
     z-index: 1;
     letter-spacing: 1px;
     text-transform: uppercase;
+    background: linear-gradient(90deg, #222 0%, #333 100%);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    font-size: 1rem;
+    text-align: center;
 }
 
+ul li a:hover,
+ul li a.active,
 div a:hover,
 div a.active {
     color: goldenrod;
-    transform: translateY(-2px);
+    background: linear-gradient(90deg, #333 0%, #444 100%);
+    transform: translateY(-2px) scale(1.03);
     font-weight: bold;
-
-}
-div a {
-    
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    padding: 0.8rem 1.8rem;
-    display: inline-block;
-    transition: all 0.3s ease;
- 
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-   
 }
 
-div a:before {
+div a:before,
+ul li a:before {
     content: '';
     position: absolute;
     top: 0;
@@ -92,7 +99,29 @@ div a:before {
 }
 
 div a:hover:before,
-div a.active:before {
+div a.active:before,
+ul li a:hover:before,
+ul li a.active:before {
     width: 100%;
 }
 
+
+@media (min-width: 1200px) {
+    section {
+        padding: 3.5rem 2rem 2rem 2rem;
+    }
+    #coinsEarned {
+        font-size: 1.5rem;
+        padding: 1.2rem;
+    }
+    ul {
+        flex-direction: row;
+        gap: 2rem;
+        justify-content: center;
+    }
+    ul li, ul li a, div a {
+        max-width: 220px;
+        font-size: 1.1rem;
+        padding: 1rem 1.2rem;
+    }
+}
