@@ -182,42 +182,6 @@
 	display: flex;
 	justify-content: center;
 }
-@media (max-width: 1200px) {
-  #displayholder  {
-    transform: scale(0.8);
-  }
-}
-@media (max-width: 900px) {
-  #displayholder  {
-    transform: scale(0.7);
-    
-  }
-}
-@media (max-width: 600px) {
-  #displayholder  {
-    transform: scale(0.6);
-    
-  }
-  
-}
-@media (max-height: 900px) {
-  #displayholder  {
-    transform: scale(0.8);
-  }
-}
-
-@media (max-height: 700px) {
-  #displayholder  {
-    transform: scale(0.7);
-  }
-}
-
-@media (max-height: 600px) {
-  #displayholder  {
-    transform: scale(0.6);
-  }
-}
-
 
 #stakeMenu {
 	background: linear-gradient(90deg, #1a1a1a 0%, #333 100%);
@@ -269,43 +233,7 @@
 	text-shadow: 0 0 6px #ffd70099;
 }
 /* Extra small mobile screens: shrink slots and buttons further */
-@media (max-width: 700px) {
-	.slots {
-		width: 48px !important;
-		height: 48px !important;
-		margin: 6px auto !important;
-	}
-	.slots .face {
-		width: 48px !important;
-		height: 48px !important;
-		font-size: 0.8rem !important;
-	}
-	#slotsSection {
-		height: 110px;
-		padding: 0.2rem 0;
-		
-	}
-	#slotsSection ul {
-		gap: 0.3rem;
-	}
-	.buttonContainer button {
-		font-size: 0.8rem;
-		padding: 5px 8px;
-	}
 
-
-	/* hexagon rotation for 6 faces */
-.slots .face1 { transform: rotateX(0deg) translateZ(50px) !important; }
-.slots .face2 { transform: rotateX(60deg) translateZ(50px) !important; }
-.slots .face3 { transform: rotateX(120deg) translateZ(50px) !important; }
-.slots .face4 { transform: rotateX(180deg) translateZ(50px) !important; }
-.slots .face5 { transform: rotateX(240deg) translateZ(50px) !important; }
-.slots .face6 { transform: rotateX(300deg) translateZ(50px) !important; }
-
-
-
-
-}
 
 .slots{
     height: 100px;
@@ -362,21 +290,6 @@
 	list-style: none;
 	
 }	
-/*
-#nr1{
-    background-color: rgb(240, 237, 90);
-	}
-#nr2{
-   	background-color: rgb(32, 182, 228);
-	}
-#nr3{
-    background-color: magenta;
-	}
-#nr4{
-    background-color: chartreuse;
-	}
-	*/
-
 .slots {
     width: 100px;
     height: 100px;
@@ -409,3 +322,59 @@
 
 
 
+@media (max-width: 700px) {
+    .slots {
+        width: 60px !important;
+        height: 60px !important;
+        margin: 8px auto !important;
+    }
+    .slots .face {
+        width: 60px !important;
+        height: 60px !important;
+        font-size: 1rem !important;
+    }
+
+    #slotsSection ul {
+        gap: 0.4rem;
+    }
+
+    /* hexagon rotation for 6 faces, scaled up */
+    .slots .face1 { transform: rotateX(0deg) translateZ(62px) !important; }
+    .slots .face2 { transform: rotateX(60deg) translateZ(62px) !important; }
+    .slots .face3 { transform: rotateX(120deg) translateZ(62px) !important; }
+    .slots .face4 { transform: rotateX(180deg) translateZ(62px) !important; }
+    .slots .face5 { transform: rotateX(240deg) translateZ(62px) !important; }
+    .slots .face6 { transform: rotateX(300deg) translateZ(62px) !important; }
+
+    #displayholder {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.7rem !important;
+        padding: 0.5rem 0.2rem !important;
+        width: 100vw !important;
+        box-sizing: border-box !important;
+    }
+    .buttonContainer {
+        flex-direction: row !important;
+        gap: 0.3rem !important;
+    }
+    .buttonContainer button {
+        font-size: 1.3rem !important;
+        padding: 4px 6px !important;
+        width: 5.5rem !important;
+        height: 5.5rem !important;
+    }
+    #currencyDisplay, #lossDisplay {
+        max-width: 90vw !important;
+        padding: 0.5rem 0.5rem !important;
+        font-size: 0.7rem !important;
+    }
+    #stakeMenu {
+        padding: 0.4rem 0.7rem 0.5rem 0.7rem !important;
+        margin: 0.2rem !important;
+    }
+    #stakeSelect {
+        font-size: 1rem !important;
+        padding: 0.1rem 0.5rem !important;
+    }
+}
