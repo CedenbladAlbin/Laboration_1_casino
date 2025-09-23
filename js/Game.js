@@ -160,21 +160,18 @@ function initGame() {
         if (resultat.includes(hitnrunIndex)) {
           const coins = getCurrency();
           let thiefDuration = 7.5;
-          if (coins > 100) thiefDuration = Math.max(2, 15.5 - Math.log10(coins) * 1.2);
+          if (coins > 100) thiefDuration = Math.max(2, 7.5 - Math.log10(coins) * 1.2);
           // Show effect using module
+          let stolenCoins = getCurrency();
           showHitnrunEffect({
             duration: thiefDuration,
             onSteal: () => {
-              const stolenCoins = getCurrency();
               subtractCurrency(stolenCoins);
               updateCurrencyDisplay();
             },
-            onRestore: (restored) => {
-              if (restored) {
-                // Restore coins if caught before stolen
-                setCurrency(getCurrency());
-                updateCurrencyDisplay();
-              }
+            onRestore: () => {
+                setCurrency(stolenCoins);
+                updateCurrencyDisplay();     
             }
           });
           // Show effect text

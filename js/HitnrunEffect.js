@@ -59,13 +59,13 @@
         thiefImg.classList.add('thief-shake-fade');
         setTimeout(() => {
           thiefImg.remove();
-          if (typeof onRestore === 'function') onRestore(false);
+          if (typeof onRestore === 'function') onRestore();
         }, 700);
       } else {
         thiefImg.classList.add('thief-bounce-fade');
         setTimeout(() => {
           thiefImg.remove();
-          if (typeof onRestore === 'function') onRestore(true);
+          if (typeof onRestore === 'function') onRestore();
         }, 700);
       }
     });
