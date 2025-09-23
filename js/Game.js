@@ -1,6 +1,4 @@
 
-
-
 import { getCurrency, subtractCurrency, addCurrency, setCurrency, updateCurrencyDisplay } from './Currency.js';
 import { showHitnrunEffect } from './HitnrunEffect.js';
 
@@ -8,7 +6,7 @@ import { showHitnrunEffect } from './HitnrunEffect.js';
       if (window.initGame) window.initGame();
   });
 
-
+// Initializes the slot machine game
 function initGame() {
   const divar = document.querySelectorAll('.slots');
   const intervall = 300;
@@ -21,7 +19,7 @@ function initGame() {
   const stakeSelect = document.getElementById("stakeSelect");
   
   
-
+// Populate slot faces if empty
   divar.forEach(div => {
     if (!div.hasChildNodes()) {
       colors.forEach((imgSrc, i) => {
@@ -39,11 +37,11 @@ function initGame() {
       });
     }
   });
-
+// Gets the current stake value
   function getStake() {
     return parseInt(stakeSelect.value, 10);
   }
-
+// Handles spin and stop actions
   function spinnAction() {
     if("Spinn" == stopButton.innerText){
       resultat.length = 0;
@@ -89,7 +87,7 @@ function initGame() {
         div.style.transform = `rotateX(${- (360 + imgIndex * anglePerFace)}deg)`;
       }, index * 800);
     });
-
+    // Evaluate results after all slots stop
     setTimeout(() => {
       const stake = getStake();
       // Count occurrences of each color
@@ -106,8 +104,8 @@ function initGame() {
 
         winType = 'big';
         winAmount = stake * WIN_MULTIPLIER;
+
         // Jackpot gold ray effect
-        
         const currencyEl = document.getElementById('currencyDisplay');
         if (currencyEl) {
           currencyEl.classList.remove('pulse');
@@ -115,7 +113,6 @@ function initGame() {
           currencyEl.classList.add('pulse');
           setTimeout(() => currencyEl.classList.remove('pulse'), 800);
         }
-            
             const jackpotRay = document.createElement('div');
             jackpotRay.className = 'jackpot-ray';
             document.body.appendChild(jackpotRay);
@@ -123,12 +120,9 @@ function initGame() {
               if (jackpotRay.parentNode) jackpotRay.parentNode.removeChild(jackpotRay);
             }, 1300);
         
-      
-       
       // Small win: all different
       } else if (counts.length === 4) {
 
-        
         winType = 'small';
         winAmount = Math.floor(stake * 1.2);
           const currencyEl = document.getElementById('currencyDisplay');
@@ -160,18 +154,21 @@ function initGame() {
         if (resultat.includes(hitnrunIndex)) {
           const coins = getCurrency();
           let thiefDuration = 7.5;
-          if (coins > 100) thiefDuration = Math.max(2, 7.5 - Math.log10(coins) * 1.2);
+          if (coins > 100) thiefDuration = Math.max(2, 15.5 - Math.log10(coins) * 1.2);
           // Show effect using module
-          let stolenCoins = getCurrency();
           showHitnrunEffect({
             duration: thiefDuration,
             onSteal: () => {
+              const stolenCoins = getCurrency();
               subtractCurrency(stolenCoins);
               updateCurrencyDisplay();
             },
-            onRestore: () => {
-                setCurrency(stolenCoins);
-                updateCurrencyDisplay();     
+            onRestore: (restored) => {
+              if (restored) {
+                // Restore coins if caught before stolen
+                setCurrency(getCurrency());
+                updateCurrencyDisplay();
+              }
             }
           });
           // Show effect text

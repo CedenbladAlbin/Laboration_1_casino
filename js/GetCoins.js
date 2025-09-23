@@ -1,10 +1,9 @@
-
 import { addCurrency } from './Currency.js';
 
 let startcoins = 100;
 let counter = 0;
 
-
+// Navigation between sections
 function showSection(id) {
   const sections = ['sectionCoin', 'sectionWho', 'sectionHow', 'sectionSafehouse','sectionEarnings'];
   sections.forEach(sec => {
@@ -14,6 +13,7 @@ function showSection(id) {
 }
 window.showSection = showSection;
 
+// Update earned coins display and add to currency after 3 updates
 function updateCoinsEarned(multiplier){
   startcoins = startcoins * multiplier;
   counter += 1;

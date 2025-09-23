@@ -2,36 +2,52 @@
 <link rel="stylesheet" href="../css/HitnrunEffect.css">
 <link rel="stylesheet" href="../css/StyleSheet.css">
 
-
+<!--
+  Main game section: Slot machine interface and controls
+-->
 <section class="main">
     <h1>Make your fortune, Loser!</h1>
-    <div id="displayholder"><div id="currencyDisplay" ></div><div id="stakeMenu">
-        <label for="stakeSelect" >Stake: </label>
-        <select id="stakeSelect">
-            <option value="10">10</option>
-            <option value="25">25</option>
-            <option value="50" selected>50</option>
-            <option value="100">100</option>
-        </select>
-        <span style="font-size:1.1rem;">coins</span>
-    </div><div id="lossDisplay"></div></div>
+    <!--
+      Display area for currency, stake selection, and total loss
+    -->
+    <div id="displayholder">
+        <div id="currencyDisplay"></div>
+        <div id="stakeMenu">
+            <label for="stakeSelect">Stake: </label>
+            <select id="stakeSelect">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50" selected>50</option>
+                <option value="100">100</option>
+            </select>
+            <span style="font-size:1.1rem;">coins</span>
+        </div>
+        <div id="lossDisplay"></div>
+    </div>
     
+    <!--
+      Slot machine reels (4 slots)
+    -->
     <section id="slotsSection">
-        <ul >
+        <ul>
             <li><div class="slots" id="nr1"></div></li>
             <li><div class="slots" id="nr2"></div></li>
             <li><div class="slots" id="nr3"></div></li>
             <li><div class="slots" id="nr4"></div></li>
         </ul>
     </section>
+    
+    <!--
+      Button to start or stop the slot machine
+    -->
     <div class="buttonContainer">
-        
-        <button id="stoppButton" >Spinn</button>
+        <button id="stoppButton">Spinn</button>
     </div>
-
-
 </section>
 
+<!--
+  Load all required JavaScript modules for the game
+-->
 <script type="module" src="../js/HitnrunEffect.js"></script>
 <script type="module" src="../js/Currency.js"></script>
 <script type="module" src="../js/Game.js"></script>

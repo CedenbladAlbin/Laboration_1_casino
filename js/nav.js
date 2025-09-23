@@ -1,15 +1,17 @@
+// Sends a message to the parent window (e.g., from inside an iframe)
 function sendMessage(event, path) {
     event.preventDefault();
     window.parent.postMessage(path, '*');
 }
 
+// Reference to the iframe where content will be displayed
 const thepath = document.getElementById("displayer");
 
+// Listens for messages sent to this window
 window.addEventListener("message", pickpath);
 
+// Handles incoming messages and updates the iframe source accordingly
 function pickpath(e) {
-  //const thepath = document.getElementById("displayer");
-
   switch (e.data) {
     case "home":
       thepath.src = "html/Home.html";
@@ -21,32 +23,14 @@ function pickpath(e) {
       thepath.src = "html/GetCoins.html";
       break;
     case "kidnap":
-        thepath.src = "html/Kidnap.html"
+      thepath.src = "html/Kidnap.html";
+      break;
     case "Devil":
-        thepath.src = "html/Kidnap.html"
+      thepath.src = "html/Kidnap.html";
+      break;
     default:
-      console.warn("Okänt meddelande:", e.data);
+      console.warn("Unknown message:", e.data);
   }
 }
 
 
-
-/*
-function ResetIndex(){
-   fetch("../html/Home.html")
-         .then(response => response.text())
-            .then(data => {
-                const mainWindow = document.getElementById('main');
-                if (mainWindow) {
-                    mainWindow.innerHTML = data;
-                     }
-                else {
-                    console.error('Main element not found');
-                }
-            })
-            .catch(error => console.error('Error loading index:', error));
-}
-
-window.ResetIndex = ResetIndex;
-
-*/
