@@ -1,5 +1,5 @@
 
-import { getCurrency, subtractCurrency, addCurrency, setCurrency, updateCurrencyDisplay } from './Currency.js';
+import { getCurrency, subtractCurrency, addCurrency, setCurrency, updateCurrencyDisplay, restoreLoss } from './Currency.js';
 import { showHitnrunEffect } from './HitnrunEffect.js';
 
   window.addEventListener('DOMContentLoaded', function() {
@@ -167,6 +167,7 @@ function initGame() {
             onRestore: () => {
        
                 setCurrency(stolenCoins);
+                restoreLoss(stolenCoins)
                 updateCurrencyDisplay();
               
             }

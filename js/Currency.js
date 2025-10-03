@@ -48,8 +48,12 @@ function setLoss(amount){
 	localStorage.setItem(TOTALLOSS_KEY, amount);
 	updateCurrencyDisplay();
 }
+function restoreLoss(){
+	setLoss(Math.max(0, getLoss() - amount));
+
+}
 
 // Initialize display on page load
 document.addEventListener('DOMContentLoaded', updateCurrencyDisplay);
 
-export { getCurrency, setCurrency, addCurrency, subtractCurrency, updateCurrencyDisplay };
+export { getCurrency, setCurrency, addCurrency, subtractCurrency, updateCurrencyDisplay, restoreLoss };
